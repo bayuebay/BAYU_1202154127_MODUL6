@@ -33,9 +33,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login" />
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Tambah_Foto" />
-        <activity android:name=".Daftar" />
+        <activity android:name=".Daftar"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".DetilFoto"
             android:theme="@style/AppTheme.NoActionBar.Detail"></activity>
