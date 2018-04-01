@@ -19,10 +19,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.example.yabz.bayu_1202154127_modul6.R;
-import com.example.yabz.bayu_1202154127_modul6.PhotoAdapter;
-import com.example.yabz.bayu_1202154127_modul6.Constant;
-import com.example.yabz.bayu_1202154127_modul6.FotoModel;
 
 public class FragmentFoto extends Fragment {
 
@@ -89,7 +85,7 @@ public class FragmentFoto extends Fragment {
             Constant.refPhoto.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    //photoList.clear();
+                    photoList.clear();
                     commentCount = 0;
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.

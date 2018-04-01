@@ -1,5 +1,6 @@
 package com.example.yabz.bayu_1202154127_modul6;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +23,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
 
         public MyViewHolder(View view) {
             super(view);
-            imgAvatar = (ImageView) view.findViewById(R.id.imgAvatar);
-            tvName = (TextView) view.findViewById(R.id.tvNama);
-            tvComment = (TextView) view.findViewById(R.id.tvKomentar);
+            imgAvatar = view.findViewById(R.id.imgAvatar);
+            tvName = view.findViewById(R.id.tvNama);
+            tvComment = view.findViewById(R.id.tvKomentar);
         }
     }
 
@@ -34,10 +35,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
     }
 
     //create ke layout row yang dipilih
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.comment_row, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -45,9 +46,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
     //binding antara data yang didapatkan ke dalam views
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        CommentModel food = commentList.get(position);
-        holder.tvComment.setText(food.getComment());
-        holder.tvName.setText(food.getName());
+        CommentModel model = commentList.get(position);
+        holder.tvComment.setText(model.getComment());
+        holder.tvName.setText(model.getName());
     }
 
     //count data

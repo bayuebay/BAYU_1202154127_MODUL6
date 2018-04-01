@@ -1,5 +1,6 @@
 package com.example.yabz.bayu_1202154127_modul6;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.ActionBar;
@@ -19,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,6 +63,7 @@ public class DetilFoto extends AppCompatActivity {
         loadIntent();
     }
 
+    @SuppressLint("SetTextI18n")
     private void loadIntent() { //mengambil value yang dipassing dari selected photo di PhotoAdapter
         if (getIntent().getExtras() != null) {
             photo = (FotoModel) getIntent().getSerializableExtra("photoData"); //ambil model yg dipassing
@@ -77,7 +80,7 @@ public class DetilFoto extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        //commentList.clear();
+                        commentList.clear();
                         // This method is called once with the initial value and again
                         // whenever data at this location is updated.
 
@@ -116,7 +119,7 @@ public class DetilFoto extends AppCompatActivity {
 
         //Insert atau push data komentar ke firebase
         Constant.refPhoto.child(photo.getKey()).child("commentList").push().setValue(new CommentModel(
-                Constant.currentUser.getEmail().split("@")[0],
+                Objects.requireNonNull(Constant.currentUser.getEmail()).split("@")[0],
                 Constant.currentUser.getEmail(),
                 etKomentar.getText().toString()
         ));

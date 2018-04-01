@@ -77,6 +77,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             // Sign in success, update UI with the signed-in user's information
                             pbDialog.dismiss();
                             Log.d("", "signInWithEmail:success");
+                            Toast.makeText(Login.this, "halo",Toast.LENGTH_SHORT).show();
                             FirebaseUser curUser = Constant.mAuth.getCurrentUser(); //ambil informasi user yang login
                             Constant.currentUser = curUser; //set di variabel global
                             startActivity(new Intent(Login.this, MainActivity.class)); //panggil activity main
@@ -84,7 +85,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(Login.this, "Account Doesn't Exist",
+                            Toast.makeText(Login.this, "Cek lagi email dan passwordnya",
                                     Toast.LENGTH_SHORT).show();
                             pbDialog.dismiss();
                             //showProgress(false);
